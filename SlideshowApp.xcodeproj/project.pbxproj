@@ -12,6 +12,12 @@
 		AC38C4162005AA880096A803 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC38C4142005AA880096A803 /* Main.storyboard */; };
 		AC38C4182005AA880096A803 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC38C4172005AA880096A803 /* Assets.xcassets */; };
 		AC38C41B2005AA880096A803 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC38C4192005AA880096A803 /* LaunchScreen.storyboard */; };
+		AC38C4232005AB3B0096A803 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38C4222005AB3B0096A803 /* ResultViewController.swift */; };
+		AC38C4252005AEEB0096A803 /* aori.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AC38C4242005AEEA0096A803 /* aori.jpg */; };
+		AC38C4272005AEF70096A803 /* boy.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AC38C4262005AEF70096A803 /* boy.jpg */; };
+		AC38C4292005AF350096A803 /* 2017080214504000-C616B031331154665D639EF16DA76BC0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AC38C4282005AF350096A803 /* 2017080214504000-C616B031331154665D639EF16DA76BC0.jpg */; };
+		AC38C42B2005AF400096A803 /* splatoon2_my_photo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AC38C42A2005AF400096A803 /* splatoon2_my_photo.jpg */; };
+		AC38C42D2005AF490096A803 /* kumasansyoukai_gear_rare.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AC38C42C2005AF490096A803 /* kumasansyoukai_gear_rare.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +28,12 @@
 		AC38C4172005AA880096A803 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AC38C41A2005AA880096A803 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AC38C41C2005AA880096A803 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AC38C4222005AB3B0096A803 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
+		AC38C4242005AEEA0096A803 /* aori.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = aori.jpg; sourceTree = "<group>"; };
+		AC38C4262005AEF70096A803 /* boy.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = boy.jpg; sourceTree = "<group>"; };
+		AC38C4282005AF350096A803 /* 2017080214504000-C616B031331154665D639EF16DA76BC0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "2017080214504000-C616B031331154665D639EF16DA76BC0.jpg"; sourceTree = "<group>"; };
+		AC38C42A2005AF400096A803 /* splatoon2_my_photo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = splatoon2_my_photo.jpg; sourceTree = "<group>"; };
+		AC38C42C2005AF490096A803 /* kumasansyoukai_gear_rare.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = kumasansyoukai_gear_rare.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +52,11 @@
 			children = (
 				AC38C40F2005AA880096A803 /* SlideshowApp */,
 				AC38C40E2005AA880096A803 /* Products */,
+				AC38C4242005AEEA0096A803 /* aori.jpg */,
+				AC38C4262005AEF70096A803 /* boy.jpg */,
+				AC38C4282005AF350096A803 /* 2017080214504000-C616B031331154665D639EF16DA76BC0.jpg */,
+				AC38C42A2005AF400096A803 /* splatoon2_my_photo.jpg */,
+				AC38C42C2005AF490096A803 /* kumasansyoukai_gear_rare.jpg */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,6 +77,7 @@
 				AC38C4172005AA880096A803 /* Assets.xcassets */,
 				AC38C4192005AA880096A803 /* LaunchScreen.storyboard */,
 				AC38C41C2005AA880096A803 /* Info.plist */,
+				AC38C4222005AB3B0096A803 /* ResultViewController.swift */,
 			);
 			path = SlideshowApp;
 			sourceTree = "<group>";
@@ -123,9 +141,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC38C4292005AF350096A803 /* 2017080214504000-C616B031331154665D639EF16DA76BC0.jpg in Resources */,
 				AC38C41B2005AA880096A803 /* LaunchScreen.storyboard in Resources */,
+				AC38C42B2005AF400096A803 /* splatoon2_my_photo.jpg in Resources */,
+				AC38C4272005AEF70096A803 /* boy.jpg in Resources */,
 				AC38C4182005AA880096A803 /* Assets.xcassets in Resources */,
+				AC38C4252005AEEB0096A803 /* aori.jpg in Resources */,
 				AC38C4162005AA880096A803 /* Main.storyboard in Resources */,
+				AC38C42D2005AF490096A803 /* kumasansyoukai_gear_rare.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,6 +161,7 @@
 			files = (
 				AC38C4132005AA880096A803 /* ViewController.swift in Sources */,
 				AC38C4112005AA880096A803 /* AppDelegate.swift in Sources */,
+				AC38C4232005AB3B0096A803 /* ResultViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
