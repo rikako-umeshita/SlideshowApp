@@ -10,22 +10,20 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    @IBOutlet weak var stopButton: UIButton!
-    //ボタンの名前を変える
-    stopButton.setTitle("停止", for: .nomal)
+    
     
     
     
     //イメージビューエリアを結びつける
     @IBOutlet weak var slideShow: UIImageView!
-    // imageViewにタグ付け
     
-
-    
+    @IBOutlet weak var returnButton: UIButton!
+    @IBOutlet weak var startButton: UIButton!
+    @IBOutlet weak var cueButton: UIButton!
     
     
     var timer: Timer!
-    var timer_sec: Float = 0
+    
     
     
     //画像の配列
@@ -34,82 +32,118 @@ class ViewController: UIViewController {
     //配列番号の変数
     var arrayNumber = 0
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-
+        arrayNumber = 0
+        
+        let image:UIImage! =  UIImage(named: photos[0])
+        slideShow.image = image
+        
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    //戻るボタンの動き
-    @IBAction func returnButton(_ sender: Any) {
     
+    //戻るボタンの動き
+    
+    @IBAction func returnButtonTapped(_ sender: Any) {
+        
         //1つ後ろの画像を読み込む
         arrayNumber -= 1
         
-        let image:UIImage! =  UIImage(named: photos[arrayNumber])
-        slideShow.image = image
-        
         //最初の画像に戻ったら、最後の画像を読み込む
         if arrayNumber < 0 {
-            arrayNumber = 4
-            let image:UIImage! =  UIImage(named: photos[arrayNumber])
-            slideShow.image = image
+            arrayNumber = photos.count - 1
         }
-        //タイマー動いてたらボタンタップ不可
-        if timer != nil{
-            returnButton.enabled = false
-        }
-            }
-   
+        
+        let image:UIImage! =  UIImage(named: photos[arrayNumber])
+        slideShow.image = image
+    }
     
     //進むボタンの動き
-    @IBAction func cueButton(_ sender: Any) {
+    @IBAction func cueButtonTapped(_ sender: Any) {
+        
+        //1つ先の画像を読み込む
         arrayNumber += 1
+        
+        
+        //最後だったら、最初の画像を読み込む
+        if photos.count == arrayNumber {
+            arrayNumber = 0
+        }
+        
         let image:UIImage! =  UIImage(named: photos[arrayNumber])
         slideShow.image = image
         
-        //最後だったら、最初の画像を読み込む
-        if arrayNumber < 4 {
-            arrayNumber = 0
-            let image:UIImage! =  UIImage(named: photos[arrayNumber])
-            slideShow.image = image
-        }
-        
-        //タイマー動いてたらボタンタップ不可
-        if timer != nil{
-            cueButton.enabled = false
-        }
     }
-        
+    
     //再生ボタンの動き
-    @IBAction func startButton(_ sender: Any) {
+    
+    @IBAction func startButtonTapped(_ sender: Any) {
         
-       
-         //再生ボタンを押すとタイマー作成・始動
-        @objc func startButton(timer: Timer) {
-            self.timer_sec += 2
-            //画像を読み込む
-            arrayNumber += 1
-            let image:UIImage! =  UIImage(named: photos[arrayNumber])
-            slideShow.image = image
- 
-        }
-        //タイマーを1つに保つ
+        
+        //タイマーが止まっているとき
         if self.timer == nil{
-             self.timer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
-        }else{
-            self.timer.invalidate()
-            self.timer_sec = nil
+            //タイマーを動かす
+            self.timer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+            
+            //進む戻るボタンをタップ不可
+            cueButton.isEnabled = false
+            returnButton.isEnabled = false
+            
+            //再生ボタンのタイトルを停止にする
+            startButton.setTitle("停止", for: .normal)
             
         }
+        else{
+            //タイマーを止める
+            self.timer.invalidate()
+            self.timer = nil
+            
+            //進むもどるボタンをタップ可
+            cueButton.isEnabled = true
+            returnButton.isEnabled = true
+            
+            //再生ボタンのタイトルを再生にする
+            startButton.setTitle("再生", for: .normal)
+            
+        }
+    }
+    
+    //再生ボタンを押すとタイマー作成・始動
+    @objc func updateTimer(timer: Timer) {
+        //画像を読み込む
+        arrayNumber += 1
+        
+        //最後だったら、最初の画像を読み込む
+        if photos.count == arrayNumber {
+            arrayNumber = 0
+        }
+        
+        let image:UIImage! =  UIImage(named: photos[arrayNumber])
+        slideShow.image = image
+    }
+    
+    //画像をタップして画面遷移
+    
+    @IBAction func viewTapped(_ sender: Any) {
 
+    }
+    
+    //画像の受け渡し
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let resultViewController:ResultViewController = segue.destination as! ResultViewController
+        resultViewController.receiveView = slideShow.image
+    }
+    
+    
+    //拡大画面から戻ってくる
+    @IBAction func unwind(_ Segue: UIStoryboardSegue) {
     }
     
     

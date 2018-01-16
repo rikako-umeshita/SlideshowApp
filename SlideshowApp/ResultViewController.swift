@@ -14,25 +14,24 @@ class ResultViewController: UIViewController {
     @IBOutlet weak var expansionSlideshow: UIImageView!
     
     
+    @IBOutlet weak var returnSegueButton: UIButton!
     
-    
+    //値を受け取るための変数
+    var receiveView : UIImage!
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        //拡大view上に表示
+       expansionSlideshow.image = receiveView
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    
-    //戻るボタンを押した時の動き（前の画面で同じ画像を表示）
-    
-    @IBAction func returnExpansionButton(_ sender: Any) {
     }
     
 
