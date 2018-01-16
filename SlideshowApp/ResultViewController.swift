@@ -27,6 +27,8 @@ class ResultViewController: UIViewController {
         
         //拡大view上に表示
        expansionSlideshow.image = receiveView
+        
+       
     }
 
     override func didReceiveMemoryWarning() {

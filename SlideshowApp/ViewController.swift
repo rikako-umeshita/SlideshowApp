@@ -131,7 +131,7 @@ class ViewController: UIViewController {
     //画像をタップして画面遷移
     
     @IBAction func viewTapped(_ sender: Any) {
-
+        
     }
     
     //画像の受け渡し
@@ -139,8 +139,13 @@ class ViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let resultViewController:ResultViewController = segue.destination as! ResultViewController
         resultViewController.receiveView = slideShow.image
+        
+        //遷移元のタイマーを止める
+        self.timer.invalidate()
+        self.timer = nil
     }
     
+
     
     //拡大画面から戻ってくる
     @IBAction func unwind(_ Segue: UIStoryboardSegue) {
