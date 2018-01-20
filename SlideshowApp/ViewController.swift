@@ -140,9 +140,19 @@ class ViewController: UIViewController {
         let resultViewController:ResultViewController = segue.destination as! ResultViewController
         resultViewController.receiveView = slideShow.image
         
-        //遷移元のタイマーを止める
-        self.timer.invalidate()
-        self.timer = nil
+        if self.timer != nil{
+            //遷移元のタイマーを止める
+            self.timer.invalidate()
+            self.timer = nil
+            
+            //進むもどるボタンをタップ可
+            cueButton.isEnabled = true
+            returnButton.isEnabled = true
+            
+            //再生ボタンのタイトルを再生にする
+            startButton.setTitle("再生", for: .normal)
+            
+        }
     }
     
 
